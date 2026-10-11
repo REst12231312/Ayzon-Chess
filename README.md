@@ -28,3 +28,7 @@ npm run preview
 ## Публикация
 
 GitHub Actions автоматически собирает проект и публикует папку `dist` в GitHub Pages после каждого изменения ветки `main`. Результат будет доступен по адресу `https://REst12231312.github.io/Ayzon-Chess/` после успешного первого запуска workflow.
+
+## Демо-партия
+
+[Посмотреть партию до мата и увидеть Рифт-комбо](https://rest12231312.github.io/Ayzon-Chess/demo.webm)
