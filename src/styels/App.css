@@ -346,3 +346,78 @@
 .share-button { display: block; width: 100%; margin: -8px 0 18px; padding: 11px; border: 1px solid #493567; border-radius: 8px; color: #d8ccf5; background: #21192f; cursor: pointer; }
 .share-button:hover { background: #2a203b; }
 
+
+/* Mobile layout: keep the board first, then controls, then move history. */
+@media (max-width: 640px) {
+  .app {
+    min-height: 100vh;
+    min-height: 100dvh;
+    padding: max(12px, env(safe-area-inset-top)) max(10px, env(safe-area-inset-right)) max(16px, env(safe-area-inset-bottom)) max(10px, env(safe-area-inset-left));
+  }
+
+  .header { padding: 6px 0 14px; }
+  .logo { font-size: clamp(12px, 3.6vw, 14px); letter-spacing: .8px; }
+  .online { font-size: 8px; letter-spacing: .6px; }
+
+  .game-layout {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 14px;
+    margin: 20px auto 24px;
+  }
+
+  .board-section { display: contents; }
+  .game-title { order: 0; margin: 0; }
+  .board-frame { order: 1; width: 100%; max-width: min(100%, 560px); padding: 4px; border-radius: 9px; touch-action: none; }
+  .game-panel { order: 2; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 8px; margin: 0; padding: 13px; }
+  .move-history { order: 3; margin-top: 0; padding: 14px; }
+
+  .game-title h1 { font-size: clamp(21px, 6vw, 28px); letter-spacing: -.5px; }
+  .subtitle { margin-top: 6px; font-size: 12px; }
+  .game-panel > .eyebrow,
+  .game-panel > h2,
+  .game-panel > .status-card,
+  .game-panel > .feature-note { grid-column: 1 / -1; }
+  .game-panel > .eyebrow { margin: 0; }
+  .game-panel h2 { margin: 0 0 2px; font-size: 19px; }
+
+  .status-card, .player-card, .feature-note { min-width: 0; margin: 0; padding: 10px; }
+  .status-card { min-height: 58px; }
+  .status-card strong { font-size: 12px; line-height: 1.35; }
+  .status-label { margin-bottom: 4px; font-size: 8px; }
+  .player-card { position: relative; align-items: flex-start; gap: 7px; padding: 10px 7px; }
+  .player-icon { width: 30px; height: 30px; border-radius: 7px; font-size: 21px; }
+  .player-card > div { min-width: 0; padding-top: 1px; }
+  .player-card strong { font-size: 11px; }
+  .player-card p, .feature-note p { font-size: 10px; line-height: 1.35; }
+  .player-card p { overflow-wrap: anywhere; }
+  .turn-tag { position: absolute; top: 4px; right: 5px; font-size: 7px; }
+  .new-game-button, .share-button { align-self: stretch; min-height: 44px; margin: 0; padding: 10px 7px; font-size: 12px; line-height: 1.25; }
+  .new-game-button span { margin-right: 3px; font-size: 15px; }
+  .feature-note { align-items: center; }
+  .feature-icon { flex-shrink: 0; font-size: 20px; }
+  .move-history h3 { margin: 5px 0 11px; font-size: 18px; }
+  .moves-list { max-height: 180px; }
+  .move-row { grid-template-columns: 30px minmax(0, 1fr) minmax(0, 1fr); gap: 6px; padding: 9px 7px; font-size: 13px; }
+  .footer { padding-top: 14px; font-size: 7px; letter-spacing: 1px; }
+}
+
+@media (max-width: 360px) {
+  .app { padding-right: 8px; padding-left: 8px; }
+  .game-panel { gap: 7px; padding: 10px; }
+  .player-card { gap: 5px; padding-right: 5px; padding-left: 5px; }
+  .player-icon { width: 26px; height: 26px; font-size: 19px; }
+  .player-card p { font-size: 9px; }
+  .new-game-button, .share-button { font-size: 11px; }
+}
+
+@media (max-width: 900px) and (orientation: landscape) {
+  .app { padding-top: 10px; }
+  .header { padding-bottom: 10px; }
+  .game-layout { margin-top: 14px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; transition-duration: .01ms !important; }
+}

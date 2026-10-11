@@ -24,3 +24,5 @@ button {
   color: white;
   background: #7c3aed;
 }
+html { -webkit-text-size-adjust: 100%; }
+body { overflow-x: hidden; }
